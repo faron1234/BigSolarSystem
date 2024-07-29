@@ -31,7 +31,7 @@ public class Planet {
         double scaledRad = this.radius / scale;
         ImageIcon image = new ImageIcon("Static/images/Sun.png");
         this.updatePos(scale, scaleCentre);
-        display.draw(image);
+        display.renderImage("Static/images/Sun.png");
     }
 
     private void updatePos(double scale, double[] scaleCentre) {
