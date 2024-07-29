@@ -29,9 +29,9 @@ public class Planet {
     public void render(Display display, double scale, double[] scaleCentre) {
         double scaledDist = this.distance / scale;
         double scaledRad = this.radius / scale;
-        ImageIcon image = new ImageIcon("path/to/your/image.jpg");
+        ImageIcon image = new ImageIcon("Static/images/Sun.png");
         this.updatePos(scale, scaleCentre);
-//        display.draw();
+        display.draw(image);
     }
 
     private void updatePos(double scale, double[] scaleCentre) {
@@ -87,7 +87,7 @@ public class Planet {
         return moving;
     }
 
-    public static void createPlanets() {
+    public static Planet[] createPlanets() {
         Planet Sun = new Planet("Sun", 696340.0, 0.0, 1.989e30, null);
         Planet Mercury = new Planet("Mercury", 2439.7, 57900000.0, 3.285e23, Sun);
         Planet Venus = new Planet("Venus", 6051.8, 108200000.0, 4.867e24, Sun);
@@ -99,7 +99,7 @@ public class Planet {
         Planet Uranus = new Planet("Uranus", 25362.0, 2872500000.0, 8.681e25, Sun);
         Planet Neptune = new Planet("Neptune", 24622.0, 4495100000.0, 1.024e26, Sun);
         Planet Pluto = new Planet("Pluto", 1188.3, 5906376272.0, 1.309e22, Sun);
-        Planet[] planets = {Sun, Mercury, Venus, Earth, Moon, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto};
+        return new Planet[]{Sun, Mercury, Venus, Earth, Moon, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto};
     }
 
 }

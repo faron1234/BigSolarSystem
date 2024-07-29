@@ -8,24 +8,20 @@ import javax.swing.*;
 public class Display {
     /*static GraphicsDevice device = GraphicsEnvironment
             .getLocalGraphicsEnvironment().getScreenDevices()[0];*/
+    private static final JFrame window = new JFrame();
 
-    public void initialise(){
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = toolkit.getScreenSize();
+    public void initialise() {
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("Solar System");
+        window.setUndecorated(true);
+        window.setLocationRelativeTo(null);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        window.setVisible(true);
+    }
 
-        JFrame window = new JFrame();
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.setResizable(false);
-            window.setTitle("Solar System");
-            window.setUndecorated(true);
-            window.setLocationRelativeTo(null);
-            window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            window.setVisible(true);
+    public void draw(ImageIcon image) {
+        window.add(new JLabel(image));
 
-            /*window.setSize(screenSize.width/2, screenSize.height/2);
-            window.setLocation(new Point(0, 0));
-            device.setFullScreenWindow(window);*/
-
-
-        }
+    }
 }
