@@ -1,14 +1,15 @@
 package main;
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Planet {
-    private Double angle = new Random().nextFloat() * (Math.PI * 2);
+    private double angle = new Random().nextFloat() * (Math.PI * 2);
     private final double radius;
     private final double distance;
     private final double mass;
     private final double velocity = this.findVelocity();
-    private final Double[] Coords = new Double[2];
+    private final double[] Coords = new double[2];
     private final String name;
     private final Planet orbiting;
     private static boolean moving = true;
@@ -30,8 +31,8 @@ public class Planet {
         double scaledDist = this.distance / scale;
         double scaledRad = this.radius / scale;
         this.updatePos(scale, scaleCentre);
-        display.renderImage(String.format("Static/images/%s.png", this.name));
-
+        display.renderImage(String.format("Static/images/%s.png", this.name), this.Coords);
+        System.out.println(String.format("Rendering Planet Image: %s, Coords: %s", this.name, Arrays.toString(this.Coords)));
     }
 
     private void updatePos(double scale, double[] scaleCentre) {
